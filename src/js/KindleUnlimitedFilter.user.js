@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kindle Unlimited Filter
 // @namespace    https://furyutei.work
-// @version      0.0.2
+// @version      0.0.3
 // @description  Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
 // @author       furyu
 // @match        https://www.amazon.co.jp/*
@@ -96,13 +96,22 @@ let is_unlimited_page = unlimited_checkbox && unlimited_checkbox.checked,
 unlimited_link.href = '#';
 unlimited_link.insertAdjacentHTML( 'afterbegin', '<label><input type="checkbox" /><span class="nav-a-content">' + UNLIMITED_ONLY_TEXT + '</span></label>' );
 
-let unlimited_only_checkbox = unlimited_link.querySelector( 'input' ),
+let unlimited_only_label = unlimited_link.querySelector( 'label' ),
+    unlimited_only_checkbox = unlimited_link.querySelector( 'input' ),
     unlimited_only_content = unlimited_link.querySelector( 'span' );
+
+Object.assign( unlimited_only_label.style, {
+    cursor : 'pointer',
+} );
 
 Object.assign( unlimited_only_checkbox.style, {
     verticalAlign : 'middle',
     marginRight : '4px',
     bottom : 'auto',
+    cursor : 'pointer',
+} );
+
+Object.assign( unlimited_only_content.style, {
     cursor : 'pointer',
 } );
 
@@ -146,6 +155,7 @@ Object.assign( unlimited_link.style, {
     top : '0',
     right : '0',
     background : 'inherit',
+    cursor : 'pointer',
 } );
 
 nav_subnav.appendChild( unlimited_link );
