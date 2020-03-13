@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kindle Unlimited Filter
 // @namespace    https://furyutei.work
-// @version      0.0.1
+// @version      0.0.2
 // @description  Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
 // @author       furyu
 // @match        https://www.amazon.co.jp/*
@@ -94,7 +94,7 @@ let is_unlimited_page = unlimited_checkbox && unlimited_checkbox.checked,
     } )();
 
 unlimited_link.href = '#';
-unlimited_link.insertAdjacentHTML( 'afterbegin', '<input type="checkbox" /><span class="nav-a-content">' + UNLIMITED_ONLY_TEXT + '</span>' );
+unlimited_link.insertAdjacentHTML( 'afterbegin', '<label><input type="checkbox" /><span class="nav-a-content">' + UNLIMITED_ONLY_TEXT + '</span></label>' );
 
 let unlimited_only_checkbox = unlimited_link.querySelector( 'input' ),
     unlimited_only_content = unlimited_link.querySelector( 'span' );
@@ -125,7 +125,7 @@ unlimited_link.addEventListener( 'click', ( event ) => {
 //
 //if ( sort_selector ) {
 //    Object.assign( unlimited_link.style, {
-//        marginRight: '8px',
+//        marginRight : '8px',
 //    } );
 //    
 //    sort_selector.parentNode.insertBefore( unlimited_link, sort_selector );
@@ -141,7 +141,11 @@ if ( ! nav_subnav ) {
 
 unlimited_link.className = 'nav-a';
 Object.assign( unlimited_link.style, {
-    cssFloat: 'right',
+    /*cssFloat: 'right',*/
+    position : 'absolute',
+    top : '0',
+    right : '0',
+    background : 'inherit',
 } );
 
 nav_subnav.appendChild( unlimited_link );
