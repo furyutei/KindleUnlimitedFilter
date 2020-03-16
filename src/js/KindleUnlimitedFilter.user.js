@@ -1,11 +1,15 @@
 // ==UserScript==
-// @name         Kindle Unlimited Filter
-// @namespace    https://furyutei.work
-// @version      0.0.3
-// @description  Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
-// @author       furyu
-// @match        https://www.amazon.co.jp/*
-// @grant        none
+// @name            Kindle Unlimited Filter
+// @namespace       https://furyutei.work
+// @version         0.0.4
+// @description     Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
+// @author          furyu
+// @match           https://www.amazon.co.jp/*
+// @grant           none
+// @compatible      chrome
+// @compatible      firefox
+// @supportURL      https://github.com/furyutei/KindleUnlimitedFilter/issues
+// @contributionURL https://memo.furyutei.work/about#%E6%B0%97%E3%81%AB%E5%85%A5%E3%81%A3%E3%81%9F%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%8A%E6%B0%97%E6%8C%81%E3%81%A1%E3%81%AF%E3%82%AE%E3%83%95%E3%83%88%E5%88%B8%E3%81%A7
 // ==/UserScript==
 
 ( ( SCRIPT_NAME ) => {
