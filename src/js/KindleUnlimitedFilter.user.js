@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name            Kindle Unlimited Filter
 // @namespace       https://furyutei.work
-// @version         0.0.4
+// @version         0.0.5
 // @description     Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
 // @author          furyu
 // @match           https://www.amazon.co.jp/*
 // @grant           none
+// @license         MIT
 // @compatible      chrome
 // @compatible      firefox
 // @supportURL      https://github.com/furyutei/KindleUnlimitedFilter/issues
