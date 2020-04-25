@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Kindle Unlimited Filter
 // @namespace       https://furyutei.work
-// @version         0.0.5
+// @version         0.0.6
 // @description     Amazon Kindle検索時にKindle Unlimitedの「□ 読み放題対象タイトル」が出ないケースでもフィルタできるようにする
 // @author          furyu
 // @match           https://www.amazon.co.jp/*
@@ -50,8 +50,10 @@ let unlimited_item = document.querySelector( '[id="p_n_feature_nineteen_browse-b
         let category_link = document.querySelector( '[cel_widget_id="RESULT_INFO_BAR-RESULT_INFO_BAR"] a[data-routing]' );
         
         if ( ! ( category_link && /[?&]i=digital-text(?:&|$)/.test( category_link.href ) ) ) {
-            // Kindleストア以外
-            return;
+            if ( ! /[?&]i=digital-text(?:&|$)/.test( location.href ) ) {
+                // Kindleストア以外
+                return;
+            }
         }
         
         let query_map = [ ... new URL( location.href ).searchParams.entries() ].reduce( ( acc, cur ) => ( { ... acc, [ cur[ 0 ] ] : cur[ 1 ] } ), {} );
